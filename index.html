@@ -381,71 +381,80 @@
       }
     }
 
-    @media (max-width: 640px) {
-      :root {
-        --section-space: 56px;
-      }
+@media (max-width: 640px) {
+  :root {
+    --section-space: 56px;
+  }
 
-      .page {
-        width: min(calc(100% - 16px), var(--max-width));
-      }
+  .page {
+    width: min(calc(100% - 16px), var(--max-width));
+  }
 
-      .topbar {
-        padding: 8px 0;
-      }
+  .topbar {
+    padding: 8px 0;
+  }
 
-      .nav {
-        display: none;
-        position: absolute;
-        top: calc(100% + 1px);
-        right: 0;
-        left: 0;
-        padding: 14px 0;
-        background: var(--bg);
-        border-bottom: 1px solid var(--line);
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
+  .nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 0;
+    left: 0;
+    padding: 14px 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 
-      .nav.open {
-        display: flex;
-      }
+  .nav.open {
+    display: flex;
+  }
 
-      .menu-toggle {
-        display: inline-block;
-        font-size: 13px;
-      }
+  .menu-toggle {
+    display: inline-block;
+    font-size: 13px;
+  }
 
-      .hero {
-        padding-top: 12px;
-      }
+  .hero {
+    padding-top: 12px;
+  }
 
-      .hero-logos {
-        margin-bottom: 18px;
-      }
+  .hero-logos {
+    margin-bottom: 18px;
+  }
 
-      .project {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
+  .project,
+  .project:first-child {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 
-      .project-media:nth-child(2) {
-        display: none;
-      }
+  .project-text {
+    grid-column: auto;
+  }
 
-      .section-head {
-        margin-bottom: 20px;
-      }
+  .project-media {
+    width: 100%;
+  }
 
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
+  .project-media:nth-child(2) {
+    display: none;
+  }
 
-      .mega-brand {
-        white-space: normal;
-      }
+  .section-head {
+    margin-bottom: 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .mega-brand {
+    white-space: normal;
+  }
     }
   </style>
 </head>
