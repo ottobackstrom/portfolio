@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Otto — Portfolio</title>
+  <style>
+    :root {
+      --bg: #ecece7;
+      --text: #111111;
+      --muted: #5d5d5d;
+      --line: #b9b9b1;
+      --card-bg: #f4f4ef;
+      --max-width: 1400px;
+      --section-space: 88px;
+      --font: Inter, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .project-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: rgba(236, 236, 231, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 50;
+    }
+
+    .brand-mini {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .nav a:hover,
+    .project-link:hover,
+    .about-link:hover,
+    .footer a:hover {
+      opacity: 0.6;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 18px 0 var(--section-space);
+    }
+
+    .hero-logos {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 26px;
+    }
+
+    .hero-logo {
+      width: clamp(54px, 7vw, 90px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 3px solid #000;
+      position: relative;
+      overflow: hidden;
+      flex: 0 0 auto;
+      background: #fff;
+    }
+
+    .hero-logo.ring::before,
+    .hero-logo.ring::after {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border: 12px solid #000;
+      border-radius: 50%;
+    }
+
+    .hero-logo.ring::after {
+      inset: auto;
+      width: 140%;
+      height: 28%;
+      left: -20%;
+      top: 36%;
+      background: #000;
+      border: 0;
+      border-radius: 999px;
+      transform: rotate(-25deg);
+    }
+
+    .hero-logo.flower {
+      border: 0;
+      background:
+        radial-gradient(circle at 50% 12%, #000 0 12%, transparent 13%),
+        radial-gradient(circle at 79% 24%, #000 0 12%, transparent 13%),
+        radial-gradient(circle at 88% 50%, #000 0 12%, transparent 13%),
+        radial-gradient(circle at 79% 76%, #000 0 12%, transparent 13%),
+        radial-gradient(circle at 50% 88%, #000 0 12%, transparent 13%),
+        radial-gradient(circle at 21% 76%, #000 0 12%, transparent 13%),
+        radial-gradient(circle at 12% 50%, #000 0 12%, transparent 13%),
+        radial-gradient(circle at 21% 24%, #000 0 12%, transparent 13%),
+        radial-gradient(circle at 50% 50%, #000 0 10%, transparent 11%);
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      line-height: 0.95;
+      font-weight: 500;
+      letter-spacing: -0.06em;
+    }
+
+    .section {
+      padding: 0 0 var(--section-space);
+    }
+
+    .section-head {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      margin-bottom: 28px;
+      font-size: 15px;
+    }
+
+    .projects {
+      display: grid;
+      gap: 56px;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 1.1fr 1.1fr 0.8fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .project:first-child {
+      grid-template-columns: 1.25fr 1.25fr 0.9fr;
+    }
+
+    .project-media {
+      background: var(--card-bg);
+      overflow: hidden;
+      aspect-ratio: 1 / 0.92;
+    }
+
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .project-media:hover img {
+      transform: scale(1.02);
+    }
+
+    .project-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+      padding-top: 2px;
+    }
+
+    .project-meta {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+      display: grid;
+      gap: 2px;
+    }
+
+    .project-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .project-description {
+      font-size: 13px;
+      line-height: 1.35;
+      max-width: 320px;
+    }
+
+    .project-link {
+      margin-top: 20px;
+      display: inline-block;
+      font-size: 13px;
+      transition: opacity 0.2s ease;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      padding-top: 16px;
+    }
+
+    .stats-intro {
+      font-size: clamp(1.8rem, 3vw, 3.3rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      max-width: 520px;
+    }
+
+    .stats-list {
+      display: grid;
+    }
+
+    .stat {
+      padding: 10px 0 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stat-number {
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 320px;
+    }
+
+    .about-link {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 14px;
+      transition: opacity 0.2s ease;
+    }
+
+    .contact-cta {
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      max-width: 700px;
+      padding: 8px 0 22px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 26px 0 18px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 120px repeat(3, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .footer-logos {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .footer h3 {
+      margin: 0 0 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .footer p,
+    .footer a,
+    .footer li {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .mega-brand {
+      font-size: clamp(3.8rem, 12vw, 10rem);
+      font-weight: 600;
+      letter-spacing: -0.09em;
+      line-height: 0.9;
+      margin: 34px 0 0;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    @media (max-width: 920px) {
+      .project,
+      .project:first-child {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .project-text {
+        grid-column: 1 / -1;
+      }
+
+      .project-description {
+        max-width: 100%;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --section-space: 56px;
+      }
+
+      .page {
+        width: min(calc(100% - 16px), var(--max-width));
+      }
+
+      .topbar {
+        padding: 8px 0;
+      }
+
+      .nav {
+        display: none;
+        position: absolute;
+        top: calc(100% + 1px);
+        right: 0;
+        left: 0;
+        padding: 14px 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .nav.open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding-top: 12px;
+      }
+
+      .hero-logos {
+        margin-bottom: 18px;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .project-media:nth-child(2) {
+        display: none;
+      }
+
+      .section-head {
+        margin-bottom: 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .mega-brand {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a href="#top" class="brand-mini">Otto Design.</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="menu">Meny</button>
+      <nav class="nav" id="menu">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-logos" aria-hidden="true">
+          <div class="hero-logo ring"></div>
+          <div class="hero-logo flower"></div>
+        </div>
+        <h1>Jag skapar visuella identiteter, digitala upplevelser och design som bygger starka varumärken.</h1>
+      </section>
+
+      <section class="section" id="work">
+        <div class="section-head">Utvalda projekt</div>
+        <div class="projects">
+
+          <article class="project">
+            <div class="project-media">
+              <img src="img/unight/mockup_outdoorposter.png" alt="Island of Lights affisch" />
+            </div>
+            <div class="project-media">
+              <img src="img/unight/mockup 3.png" alt="Island of Lights appvy" />
+            </div>
+            <div class="project-text">
+              <div>
+                <div class="project-meta">
+                  <span>Projekt</span>
+                  <span class="project-title">Island of Lights</span>
+                  <span>Interaktiv tjänst / UX / Koncept</span>
+                </div>
+                <p class="project-description">
+                  Ett koncept utvecklat under min utbildning på YRGO. Idén byggde på en projicerad världskarta där besökare via en app kunde markera vilket land de kom ifrån och skapa en levande ljusinstallation i offentlig miljö.
+                </p>
+              </div>
+              <a class="project-link" href="project1.html">Se projekt →</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-media">
+              <img src="img/bloodline/bloodline_logo.png" alt="Bloodline identitet" />
+            </div>
+            <div class="project-media">
+              <img src="img/bloodline/clothes_white.png" alt="Bloodline kläder" />
+            </div>
+            <div class="project-text">
+              <div>
+                <div class="project-meta">
+                  <span>Projekt</span>
+                  <span class="project-title">Bloodline</span>
+                  <span>Webbkoncept / Visuell identitet</span>
+                </div>
+                <p class="project-description">
+                  Ett webbkoncept för Bloodline – ett varumärke inom musik, mode och film. Fokus låg på att skapa en tydlig digital plattform med stark visuell identitet.
+                </p>
+              </div>
+              <a class="project-link" href="project2.html">Se projekt →</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-media">
+              <img src="img/tp/logo.png" alt="Kampanjsystem detalj" />
+            </div>
+            <div class="project-media">
+              <video autoplay muted loop playsinline>
+                <source src="img/tp/zata2.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="project-text">
+              <div>
+                <div class="project-meta">
+                  <span>Projekt</span>
+                  <span class="project-title">Team Platina</span>
+                  <span>Digital design / Content</span>
+                </div>
+                <p class="project-description">
+                  Ett examensarbete där vi tog fram ett nytt webbkoncept för det Stockholmsbaserade musik-kollektivet Team Platina. Målet var att skapa en tydligare digital helhet som bättre lyfte fram deras musik, rörliga innehåll och visuella identitet.
+                </p>
+              </div>
+              <a class="project-link" href="project3.html">Se projekt →</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-media">
+              <img src="img/fotoskolan/logo.png" alt="Digital miljö" />
+            </div>
+            <div class="project-media">
+              <img src="img/fotoskolan/photos.png" alt="Digital miljö detalj" />
+            </div>
+            <div class="project-text">
+              <div>
+                <div class="project-meta">
+                  <span>Projekt</span>
+                  <span class="project-title">Fotoskolan Stockholms Elevkår</span>
+                  <span>Webb / UI Design</span>
+                </div>
+                <p class="project-description">
+                  Ett webbprojekt där struktur, känsla och läsbarhet stod i centrum. Resultatet blev en ren och genomarbetad upplevelse med fokus på tydlighet och hög visuell kvalitet.
+                </p>
+              </div>
+              <a class="project-link" href="project4.html">Se projekt →</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80" alt="Kreativ kampanj" />
+            </div>
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1775037409691-10362464c4e8?auto=format&fit=crop&w=1200&q=80" alt="Kreativ kampanj detalj" />
+            </div>
+            <div class="project-text">
+              <div>
+                <div class="project-meta">
+                  <span>Projekt</span>
+                  <span class="project-title">Kreativ kampanj</span>
+                  <span>Koncept / Socialt / Digitalt</span>
+                </div>
+                <p class="project-description">
+                  Ett projekt med fokus på att översätta en idé till en stark visuell helhet. Här arbetade jag med tonalitet, form och uttryck för att skapa något som känns både samtida och distinkt.
+                </p>
+              </div>
+              <a class="project-link" href="#">Se projekt →</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="stats">
+          <div>
+            <p class="stats-intro">Jag formger identiteter och digitala upplevelser som lyfter varumärken och gör idéer tydliga.</p>
+          </div>
+          <div>
+            <div class="stats-list">
+              <div class="stat">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Projekt inom branding, konceptutveckling och digital design.</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Områden jag gärna jobbar i: identitet, webb, UX, copy och innehåll.</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Fokus på tydlig form, stark känsla och lösningar som är lätta att vidareutveckla.</div>
+              </div>
+            </div>
+            <a class="about-link" href="contact.html">Kontakt →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="section-head"></div>
+        <p class="contact-cta">Hör gärna av dig om du vill samarbeta, diskutera ett projekt eller bara säga hej.</p>
+
+        <footer class="footer">
+          <div class="footer-grid">
+            <div class="footer-logos" aria-hidden="true">
+              <div class="hero-logo ring" style="width:32px; border-width:2px;"></div>
+              <div class="hero-logo flower" style="width:32px;"></div>
+            </div>
+
+            <div>
+              <h3>Based in</h3>
+              <p>Göteborg, Sverige</p>
+            </div>
+
+            <div>
+              <h3>Contact</h3>
+              <p><a href="mailto:ottowbackstrom@gmail.com">ottowbackstrom@gmail.com</a></p>
+              <p><a href="tel:+46705259304">+46 70 525 93 04</a></p>
+            </div>
+
+            <div>
+              <h3>Social</h3>
+              <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Behance</a></li>
+                <li><a href="#">LinkedIn</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mega-brand">Otto Design.<br><br></div>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

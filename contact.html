@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt — Otto</title>
+  <style>
+    :root {
+      --bg: #ecece7;
+      --text: #111;
+      --muted: #666;
+      --line: #b9b9b1;
+      --max-width: 900px;
+      --font: Inter, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: var(--font);
+      color: var(--text);
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .back {
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin: 60px 0 20px;
+    }
+
+    .intro {
+      font-size: 18px;
+      max-width: 500px;
+      line-height: 1.5;
+      color: var(--muted);
+      margin-bottom: 60px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+    }
+
+    .contact-block span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .contact-block a,
+    .contact-block p {
+      font-size: 18px;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .socials {
+      margin-top: 40px;
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 100px;
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+    }
+
+    .mega {
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 600;
+      letter-spacing: -0.08em;
+      line-height: 0.9;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 700px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="topbar">
+      <a href="index.html" class="back">← Tillbaka</a>
+      <div>Contact</div>
+    </header>
+
+    <main>
+      <h1>Let’s work together</h1>
+
+      <p class="intro">
+        Hör av dig om du vill samarbeta, har ett projekt på gång eller bara vill säga hej.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-block">
+          <span>Email</span>
+          <a href="mailto:ottowbackstrom@gmail.com">ottowbackstrom@gmail.com</a>
+        </div>
+
+        <div class="contact-block">
+          <span>Telefon</span>
+          <a href="tel:+46705259304">+46 70 525 93 04</a>
+        </div>
+
+        <div class="contact-block">
+          <span>Plats</span>
+          <p>Göteborg, Sverige</p>
+        </div>
+
+        <div class="contact-block">
+          <span>Tillgänglighet</span>
+          <p>Öppen för uppdrag & samarbeten</p>
+        </div>
+      </div>
+
+      <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">Behance</a>
+        <a href="#">LinkedIn</a>
+      </div>
+
+      <div class="footer">
+        <div class="mega">/Otto</div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!--
+    🔧 ÄNDRA:
+    - Mail
+    - Telefonnummer
+    - Sociala länkar
+    - Texten högst upp
+
+    🔗 Koppla från index.html:
+    <a href="contact.html">Contact</a>
+  -->
+
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examensarbete — Team Platina</title>
+  <style>
+    :root {
+      --bg: #ecece7;
+      --text: #111;
+      --muted: #666;
+      --line: #b9b9b1;
+      --max-width: 1100px;
+      --font: Inter, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: var(--font);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .back {
+      font-size: 14px;
+      transition: opacity 0.2s ease;
+    }
+
+    .back:hover,
+    .footer-nav a:hover {
+      opacity: 0.6;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin: 40px 0 16px;
+    }
+
+    .intro {
+      max-width: 700px;
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    .meta div span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .image {
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image img,
+    .image video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image:hover video,
+    .image-grid div:hover video {
+      transform: scale(1.02);
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 32px;
+      border-top: 1px solid var(--line);
+      padding: 20px 0 0;
+      margin: 52px 0;
+    }
+
+    .section-label {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .section-content p {
+      margin: 0 0 18px;
+      max-width: 720px;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .section-content ul {
+      margin: 0;
+      padding-left: 18px;
+      max-width: 720px;
+    }
+
+    .section-content li {
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .footer-nav {
+      border-top: 1px solid var(--line);
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .meta {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="topbar">
+      <a href="index.html" class="back">← Tillbaka</a>
+      <div>Projekt</div>
+    </header>
+
+    <main>
+      <h1>Team Platina</h1>
+
+      <p class="intro">
+        Ett examensarbete där vi tog fram ett nytt webbkoncept för det Stockholmsbaserade musik-kollektivet Team Platina. Målet var att skapa en tydligare digital helhet som bättre lyfte fram deras musik, rörliga innehåll och visuella identitet.
+      </p>
+
+      <div class="meta">
+        <div>
+          <span>År</span>
+          2020
+        </div>
+        <div>
+          <span>Roll</span>
+          Webbdesign / HTML5 / CSS
+        </div>
+        <div>
+          <span>Typ</span>
+          Examensarbete / Webbkoncept
+        </div>
+        <div>
+          <span>Status</span>
+          Koncept, ej lanserat
+        </div>
+      </div>
+
+      <div class="image">
+        <img src="img/tp/first.png" alt="Team Platina startsida" />
+      </div>
+
+      <div class="image-grid">
+        <img src="img/tp/video_play.png" alt="Team Platina musikvideosida" />
+        <img src="img/tp/shop_start.png" alt="Team Platina webbshopskoncept" />
+      </div>
+
+      <section class="section">
+        <div class="section-label">Bakgrund</div>
+        <div class="section-content">
+          <p>
+            Team Platinas befintliga hemsida bestod främst av en kontaktsida och en webbshop. Vi såg en tydlig möjlighet att utveckla sidan till något mer innehållsrikt, där kollektivets musikproduktioner, visuella arbeten och identitet kunde få större plats.
+          </p>
+          <p>
+            Projektet genomfördes som examensarbete med fokus på att fördjupa oss i HTML5 och CSS, samtidigt som vi ville undersöka hur vi kunde bygga en mer sammanhållen och relevant digital upplevelse för ett kreativt kollektiv.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label">Mål</div>
+        <div class="section-content">
+          <p>
+            Målet var att strukturera om hemsidan så att den i större utsträckning speglade Team Platinas verksamhet och uttryck. Vi ville skapa en lättnavigerad plattform där musik, rörlig bild och kläder kunde samexistera inom en gemensam visuell identitet.
+          </p>
+          <ul>
+            <li>Lyfta fram kollektivets musik- och filmproduktioner.</li>
+            <li>Skapa en tydligare och mer sammanhållen struktur.</li>
+            <li>Utforma en design som stärker varumärket och når en bredare målgrupp.</li>
+            <li>Fördjupa oss i HTML5, CSS och arbetssätt inom webbdesign.</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="image-grid">
+        <img src="img/tp/shop_tshirt.png" alt="Team Platina detalj 1" />
+        <img src="img/tp/album.png" alt="Team Platina detalj 2" />
+      </div>
+
+      <section class="section">
+        <div class="section-label">Process</div>
+        <div class="section-content">
+          <p>
+            Arbetet började med en analys av den befintliga hemsidan, där vi identifierade både funktionella och visuella brister. Därefter tog vi fram en första skiss som presenterades för kunden, vilket gav oss klartecken att utveckla konceptet vidare.
+          </p>
+          <p>
+            I processen arbetade vi med research, omvärldsanalys och inspiration från artisthemsidor, brutalistisk webbdesign samt lösningar för att presentera musik och video på ett mer engagerande sätt. Vi ville hålla uttrycket enkelt, nedskalat och slagkraftigt, med fokus på tydlig typografi, rörligt material och stark visuell närvaro.
+          </p>
+          <p>
+            Vi fördjupade oss särskilt i front-end och arbetade med HTML5, CSS, flexbox, grid och implementering av innehåll från Youtube och Spotify. Samtidigt undersökte vi Shopify som plattform för webbshoppen, men valde att lägga huvuddelen av vårt fokus på den visuella och strukturella upplevelsen.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label">Designval</div>
+        <div class="section-content">
+          <p>
+            På startsidan möts användaren av rörligt bildmaterial från olika musikvideor, vilket direkt skapar energi och identitet. Längre ner kompletteras detta med information om kollektivet, kontaktuppgifter samt länkar till Instagram och Spotify.
+          </p>
+          <p>
+            För musikvideosidan valde vi att kurera ett mindre urval videor som bäst representerade Team Platinas uttryck. Detta gav sidan tydlighet och gjorde innehållet mer överskådligt. Hover-effekter och helskärmsvisning av video användes för att skapa en mer levande och engagerande upplevelse.
+          </p>
+          <p>
+            Typografiskt valde vi Helvetica för att skapa ett rent och direkt uttryck. Den visuella riktningen hämtade inspiration från brutalistisk webbdesign, men tolkades på ett sätt som fortfarande fungerade för målgruppen och innehållet.
+          </p>
+        </div>
+      </section>
+
+      <div class="image">
+        <video autoplay muted loop playsinline>
+          <source src="img/tp/zata2.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <section class="section">
+        <div class="section-label">Resultat</div>
+        <div class="section-content">
+          <p>
+            Resultatet blev ett koncept för en mer innehållsrik och identitetsbärande hemsida där Team Platinas musik, video och visuella uttryck fick en tydligare plats. Projektet visade hur en enkel men genomtänkt struktur kan ge större tyngd åt ett kreativt varumärke.
+          </p>
+          <p>
+            Arbetet gav också praktisk erfarenhet av att utveckla i HTML5 och CSS, samt av att arbeta i team med design, struktur och teknisk produktion som gemensamt ansvar.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label">Reflektion</div>
+        <div class="section-content">
+          <p>
+            Projektet stannade på konceptstadiet och lanserades aldrig. Det gav oss samtidigt utrymme att utforska idéer mer fritt och fokusera på design, struktur och identitet snarare än färdig implementation.
+          </p>
+          <p>
+            Vid ett fortsatt arbete hade vi velat fördjupa oss ytterligare i Javascript, vidareutveckla webbshoppen och arbeta närmare kunden genom fler intervjuer, avstämningar och användartester. Projektet blev därför inte bara ett designarbete, utan också en viktig lärdom i hur strategi, kommunikation och teknisk produktion hänger ihop.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer-nav">
+      <a href="#">← Föregående projekt</a>
+      <a href="#">Nästa projekt →</a>
+    </div>
+
+  </div>
+</body>
+</html>

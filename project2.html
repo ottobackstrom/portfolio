@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projekt — Otto</title>
+  <style>
+    :root {
+      --bg: #ecece7;
+      --text: #111;
+      --muted: #666;
+      --line: #b9b9b1;
+      --max-width: 1100px;
+      --font: Inter, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: var(--font);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .back {
+      font-size: 14px;
+      transition: opacity 0.2s ease;
+    }
+
+    .back:hover,
+    .footer-nav a:hover {
+      opacity: 0.6;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin: 40px 0 16px;
+    }
+
+    .intro {
+      max-width: 680px;
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    .meta div span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .image {
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    .image:hover img {
+      transform: scale(1.02);
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    .image-grid > div {
+      overflow: hidden;
+    }
+
+    .image-grid > div:hover img {
+      transform: scale(1.02);
+    }
+
+    .text-block {
+      max-width: 700px;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 60px 0;
+    }
+
+    .footer-nav {
+      border-top: 1px solid var(--line);
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      gap: 16px;
+    }
+
+    @media (max-width: 700px) {
+      .meta {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="topbar">
+      <a href="index.html" class="back">← Tillbaka</a>
+      <div>Projekt</div>
+    </header>
+
+    <main>
+      <h1>Bloodline</h1>
+
+      <p class="intro">
+        Ett koncept för en ny hemsida till skivbolaget och klädmärket Bloodline, med fokus på att samla musik, mode och film i en tydlig digital helhet.
+      </p>
+
+      <div class="meta">
+        <div>
+          <span>År</span>
+          2019
+        </div>
+        <div>
+          <span>Roll</span>
+          Webbdesign / Koncept / Visuell identitet
+        </div>
+        <div>
+          <span>Typ</span>
+          Hemsida / Varumärke
+        </div>
+        <div>
+          <span>Status</span>
+          Koncept, ej lanserat
+        </div>
+      </div>
+
+      <div class="image">
+        <img src="img/bloodline/bloodline_logo4.png" alt="Bloodline logo" />
+      </div>
+
+      <div class="image-grid">
+        <div>
+          <img src="img/bloodline/front1.png" alt="Bloodline startsida musik" />
+        </div>
+        <div>
+          <img src="img/bloodline/front2.png" alt="Bloodline startsida video" />
+        </div>
+      </div>
+
+      <div class="image-grid">
+        <div>
+          <img src="img/bloodline/logos.png" alt="Bloodline stylesheet och logotyper" />
+        </div>
+        <div>
+          <img src="img/bloodline/clothes.png" alt="Bloodline klädkoncept" />
+        </div>
+      </div>
+
+      <div class="image">
+        <img src="img/bloodline/bloodline_logo2.png" alt="Bloodline visuell detalj" />
+      </div>
+
+      <div class="text-block">
+        <p>
+          Uppdraget var att ta fram ett nytt webbkoncept för Bloodline, ett skivbolag och klädmärke med koppling till artister som Aden x Asme, Asme, Aden och Awave. Projektet handlade om att samla musik, mode och visuellt innehåll i en tydlig digital helhet.
+        </p>
+        <p>
+          Målet var att skapa en hemsida som kändes mörk, självsäker och kulturellt förankrad. Designen togs fram för att ge utrymme åt både artistinnehåll, visuella projekt och kläder, samtidigt som strukturen hölls enkel och tydlig.
+        </p>
+        <p>
+          Projektet utvecklades som ett koncept och lanserades aldrig, vilket gav utrymme att arbeta mer fritt med varumärkets visuella riktning och digitala uttryck.
+        </p>
+      </div>
+    </main>
+
+    <div class="footer-nav">
+      <a href="project1.html">← Föregående projekt</a>
+      <a href="#">Nästa projekt →</a>
+    </div>
+
+  </div>
+</body>
+</html>

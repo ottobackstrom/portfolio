@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projekt — Otto</title>
+  <style>
+    :root {
+      --bg: #ecece7;
+      --text: #111;
+      --muted: #666;
+      --line: #b9b9b1;
+      --max-width: 1100px;
+      --font: Inter, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: var(--font);
+      color: var(--text);
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .back {
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin: 40px 0 16px;
+    }
+
+    .intro {
+      max-width: 600px;
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+      font-size: 14px;
+    }
+
+    .meta div span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    /* VANLIGA STORA BILDER */
+    .image {
+      margin-bottom: 24px;
+    }
+
+    .image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 🔥 NYTT: GRID FÖR BILDER */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 3-kolumn grid (valfri) */
+    .image-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .image-grid-3 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .text-block {
+      max-width: 700px;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 60px 0;
+    }
+
+    .footer-nav {
+      border-top: 1px solid var(--line);
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      .meta {
+        grid-template-columns: 1fr;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .image-grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="topbar">
+      <a href="index.html" class="back">← Tillbaka</a>
+      <div>Projekt</div>
+    </header>
+
+    <main>
+      <h1>Island of Lights</h1>
+
+      <p class="intro">
+        Ett interaktivt koncept där besökare kunde markera sitt ursprung på en projicerad världskarta via en mobilapp.
+      </p>
+
+      <div class="meta">
+        <div>
+          <span>År</span>
+          2019
+        </div>
+        <div>
+          <span>Roll</span>
+          UX / Koncept / Design
+        </div>
+        <div>
+          <span>Typ</span>
+          Interaktiv installation
+        </div>
+      </div>
+
+      <!-- EN STOR BILD -->
+      <div class="image">
+        <img src="C:\Users\Otto\Desktop\Portfolio\img\unight\unight_logo.png" />
+      </div>
+
+      <!-- 🔥 2 BILDER BREDVID VARANDRA -->
+      <div class="image-grid">
+        <img src="C:\Users\Otto\Desktop\Portfolio\img\unight\mockup 1.png" />
+        <img src="C:\Users\Otto\Desktop\Portfolio\img\unight\mockup 2.png" />
+      </div>
+
+      <!-- 🔥 3 BILDER GRID -->
+      <div class="image-grid">
+        <img src="C:\Users\Otto\Desktop\Portfolio\img\unight\mockup 3.png" />
+        <img src="C:\Users\Otto\Desktop\Portfolio\img\unight\mockup 4.png" />
+      </div>
+
+      <!-- 🔥 4 BILDER GRID -->
+      <div class="image">
+        <img src="C:\Users\Otto\Desktop\Portfolio\img\unight\mockup 5.png" />
+      </div>
+
+      <div class="text-block">
+        <p>
+          Projektet utvecklades under min utbildning på YRGO och hade som mål att skapa en interaktiv upplevelse i offentlig miljö.
+        </p>
+        <p>
+          Genom att kombinera fysisk projektion med en digital tjänst kunde användaren bli en del av installationen. Resultatet blev en levande visualisering av besökarnas geografiska spridning.
+        </p>
+        <p>
+          Fokus låg på enkel interaktion, tydlig feedback och ett visuellt uttryck som fungerade i stor skala.
+        </p>
+      </div>
+
+    </main>
+
+    <div class="footer-nav">
+      <a href="#">← Föregående projekt</a>
+      <a href="#">Nästa projekt →</a>
+    </div>
+
+  </div>
+
+  <!--
+    🔥 SÅ ANVÄNDER DU GRID:
+
+    2 bilder bredvid varandra:
+    <div class="image-grid">
+      <img src="bild1.png">
+      <img src="bild2.png">
+    </div>
+
+    3 bilder:
+    <div class="image-grid-3">
+      <img src="bild1.png">
+      <img src="bild2.png">
+      <img src="bild3.png">
+    </div>
+
+    Vill du ha blandat? Kombinera hur du vill.
+  -->
+
+</body>
+</html>
