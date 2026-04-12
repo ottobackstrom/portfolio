@@ -131,6 +131,19 @@
     .image-grid div:hover video {
       transform: scale(1.02);
     }
+    
+    .image {
+  margin-bottom: 24px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.image iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
 
     .section {
       display: grid;
@@ -301,11 +314,13 @@
         </div>
       </section>
 
-      <div class="image">
-        <video autoplay muted loop playsinline>
-          <source src="img/tp/zata2.mp4" type="video/mp4" />
-        </video>
-      </div>
+        <div class="image">
+          <iframe
+             src="https://player.vimeo.com/video/1182456168?autoplay=1&muted=1&loop=1&background=1"
+             allow="autoplay; fullscreen; picture-in-picture"
+             allowfullscreen>
+         </iframe>
+       </div>
 
       <section class="section">
         <div class="section-label">Resultat</div>
