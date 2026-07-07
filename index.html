@@ -207,6 +207,20 @@
       transform: scale(1.02);
     }
 
+    .project-media.video {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 0.92;
+}
+
+.project-media.video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
 .image {
   margin-bottom: 24px;
   aspect-ratio: 16 / 9;
@@ -533,13 +547,14 @@
             <div class="project-media">
               <img src="img/teamplatina/logo.png" alt="Kampanjsystem detalj" />
             </div>
-              <div class="project-media">
-          <iframe
-             src="https://player.vimeo.com/video/1182456168?autoplay=1&muted=1&loop=1&background=1"
-             allow="autoplay; fullscreen; picture-in-picture"
-             allowfullscreen>
-         </iframe>
-       </div>
+          <div class="project-media video">
+              <iframe
+              src="https://player.vimeo.com/video/1182456168?autoplay=1&muted=1&loop=1&autopause=0&controls=0"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen>
+              </iframe>
+        </div>
             <div class="project-text">
               <div>
                 <div class="project-meta">
